@@ -1,0 +1,139 @@
+syntax = "proto3";
+
+package custom_datatypes.custom_types;
+
+import "google/protobuf/struct.proto";
+
+message AnyValue {
+    // The kind of value.
+    oneof kind {
+        // Represents a null value.
+        google.protobuf.NullValue null_value = 1;
+        // Represents a double value.
+        double number_value = 2;
+        // Represents a string value.
+        string string_value = 3;
+        // Represents a boolean value.
+        bool bool_value = 4;
+        // Represents a structured value.
+        google.protobuf.Struct struct_value = 5;
+        // Represents a repeated `Value`.
+        ListAnyValue list_value = 6;
+        // Represents a integer value.
+        int64 int_value = 7;
+        // Respresents hash value
+        StructAnyValue struct_any_value = 8;
+    }
+}
+
+
+// The JSON representation for `ListValue` is JSON array.
+message ListAnyValue {
+    // Repeated field of dynamically typed values.
+    repeated AnyValue values = 1;
+}
+
+message StructAnyValue {
+    map<string, AnyValue> value = 1;
+    bool exclude_value = 2;
+}
+
+
+message DoubleNullValue {
+    // The double value.
+
+    oneof kind {
+        double value = 1;
+        google.protobuf.NullValue null_value = 2;
+        bool exclude_value = 3;
+    }
+}
+
+// Wrapper message for `float`.
+message FloatNullValue {
+    // The float value.
+
+    oneof kind {
+        float value = 1;
+        google.protobuf.NullValue null_value = 2;
+        bool exclude_value = 3;
+    }
+}
+
+// Wrapper message for `int64`.
+//
+// The JSON representation for `Int64Value` is JSON string.
+message Int64NullValue {
+    // The int64 value.
+    oneof kind {
+        int64 value = 1;
+        google.protobuf.NullValue null_value = 2;
+        bool exclude_value = 3;
+    }
+}
+
+// Wrapper message for `uint64`.
+//
+// The JSON representation for `UInt64Value` is JSON string.
+message UInt64NullValue {
+    // The uint64 value.
+    oneof kind {
+        uint64 value = 1;
+        google.protobuf.NullValue null_value = 2;
+        bool exclude_value = 3;
+    }
+}
+
+// Wrapper message for `int32`.
+//
+// The JSON representation for `Int32Value` is JSON number.
+message Int32NullValue {
+    // The int32 value.
+    oneof kind {
+        int32 value = 1;
+        google.protobuf.NullValue null_value = 2;
+        bool exclude_value = 3;
+    }
+}
+
+// Wrapper message for `uint32`.
+//
+// The JSON representation for `UInt32Value` is JSON number.
+message UInt32NullValue {
+    // The uint32 value.
+    oneof kind {
+        uint32 value = 1;
+        google.protobuf.NullValue null_value = 2;
+        bool exclude_value = 3;
+    }
+}
+
+// Wrapper message for `bool`.
+//
+// The JSON representation for `BoolValue` is JSON `true` and `false`.
+message BoolNullValue {
+    // The bool value.
+    oneof kind {
+        bool value = 1;
+        google.protobuf.NullValue null_value = 2;
+        bool exclude_value = 3;
+    }
+}
+
+// Wrapper message for `string`.
+//
+// The JSON representation for `StringValue` is JSON string.
+message StringNullValue {
+    // The string value.
+    oneof kind {
+        string value = 1;
+        google.protobuf.NullValue null_value = 2;
+        bool exclude_value = 3;
+    }
+}
+
+message ListStringNullValue {
+    // Repeated field of dynamically typed values.
+    repeated StringNullValue values = 1;
+}
+
