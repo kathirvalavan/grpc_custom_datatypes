@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.summary     = 'grpc_custom_datatypes Summary!'
   spec.description = 'grpc_custom_datatypes description'
   spec.authors     = ['Kathirvalavan', 'Bivil']
-  spec.email       = ['kathirvalavan.soundarajan@freshworks.com', 'bivil.jacob@freshworks.com']
+  spec.email       = ['kathirvalavan.ict@gmail.com', 'bivilj@gmail.com']
   spec.files       = Dir['lib/**/*.rb']
   spec.homepage    = 'https://www.freshworks.com'
   spec.license     = ''
